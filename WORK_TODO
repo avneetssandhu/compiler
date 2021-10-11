@@ -1,0 +1,2 @@
+1. clean up table.h
+2. make struct log in log.h, it is empty right now and TABLE uses it
