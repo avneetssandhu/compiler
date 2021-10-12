@@ -1,0 +1,30 @@
+GCC macro expansion is not that great when it comes to concatenation,
+here is an example. note: "##" is used for concatenation
+	#define Test_XXX(XXX) ##XXX_Test
+	Test_XXX(ABC);
+
+The above code produces the following result:
+	XXX_Test;
+
+The passed parameter "ABC" is not concatenated due to the lack of 
+whitespace isolation around "##XXX".
+
+You can get the concatenation to work, in the above example the following
+would produce the desired result:
+	#define Test_XXX(XXX) ##XXX _Test
+	Test_XXX(ABC);
+
+But as you can see it can be confusing because we put a space between
+"##XXX" and "_Test", yet the preprocessor will produce a result which
+omits the space: 
+	ABC_XXX;
+
+A better way to do this would be to replace the macro parameters in the
+macro value if it is prepended with a "##" even if it is NOT whitespace
+isolated.
+
+The above was inspired by attempting to create the macro
+Data_XXX_Information_Struct_Gen, this macro can be found in 
+library/Tests/table/macros/Data_XXX_Information_Struct_Gen.c, the macro
+was created successfully, but it follows the above pattern of having to
+include whitespace inbetween the strings to be concatenated.

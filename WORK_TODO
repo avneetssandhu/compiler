@@ -1,2 +1,7 @@
 1. clean up table.h
 2. make struct log in log.h, it is empty right now and TABLE uses it
+3. Inside library/table/table.h, 
+   the macro Data_XXX_Information_Struct_Gen, generates the desired struct
+   but does not format it well (it lacks newlines after the variable decls
+   inside the struct). Find out how to make it generate the struct with 
+   newlines.

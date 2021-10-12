@@ -28,29 +28,27 @@ struct Table_Miscellaneous_Information {
 	void*  prev_locations_of_tables;
 };
 
-struct Data_Add_Information {
-	void* data_all_data_added;
-	int*  data_num_times_data_added;
-	int*  data_indexes_of_data_added;
-};
 
-struct Data_Remove_Information {
-	void* data_all_data_removed;
-	int*  data_num_times_data_removed;
-	int*  data_indexes_of_data_removed;
-};
+#define Data_XXX_Information_Struct_Gen(name_in_struct, name_in_variables )	struct Data_ ##name_in_struct ##_Information {							     \
+		void* data_all_data_ ##name_in_variables;			\
+		int*  data_num_times_ ##name_in_variables;			\
+		int*  data_indexes_of_data_ ##name_in_variables; 		\
+	}
 
-struct Data_Insert_Information {
-	void* data_all_data_inserted;
-	int*  data_num_times_data_inserted;
-	int*  data_indexes_of_data_inserted;
-};
+#define Data_XXX_Information_Struct_Typedef(name_in_struct, name_in_typedef) typedef struct Data_ ##name_in_struct ##_Information DATA_ ##name_in_typedef ##_INFORMATION
+
+Data_XXX_Information_Struct_Gen(Add, added);
+Data_XXX_Information_Struct_Gen(Remove, removed);
+Data_XXX_Information_Struct_Gen(Insert, inserted);
+Data_XXX_Information_Struct_Typedef(Add, ADD);
+Data_XXX_Information_Struct_Typedef(Remove, REMOVE);
+Data_XXX_Information_Struct_Typedef(Insert, INSERT);
+
 
 struct Data_Alteration_Information {
 	DATA_ADD_INFORMATION data_add_information;
 	DATA_REMOVE_INFORMATION data_remove_information;
 	DATA_INSERT_INFORMATION data_insert_information;
-
 };
 
 struct Table_Data_Information {
@@ -80,9 +78,6 @@ struct Table {
 typedef struct Table_Time_Statistics TABLE_TIME_STATISTICS;
 typedef struct Table_Time_Information TABLE_TIME_INFORMATION;
 typedef struct Table_Miscellaneous_Information TABLE_MISCELLANEOUS_INFORMATION;
-typedef struct Data_Add_Information DATA_ADD_INFORMATION;
-typedef struct Data_Remove_Information DATA_REMOVE_INFORMATION;
-typedef struct Data_Insert_Information DATA_INSERT_INFORMATION;
 typedef struct Data_Alteration_Information DATA_ALTERATION_INFORMATION;
 typedef struct Table_Data_Information TABLE_DATA_INFORMATION;
 typedef struct Table TABLE;
