@@ -1,0 +1,3 @@
+#define Data_XXX_Information_Struct_Typedef typedef int abc
+
+Data_XXX_Information_Struct_Typedef
