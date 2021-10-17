@@ -39,7 +39,7 @@ struct Embedded_Data_Entry {
 };
 
 typedef struct Embedded_Data_Entry EMBEDDED_DATA_ENTRY;
-typedef EMBEDDED_DATA_ENTRY* EMBEDDED_DATA_ENTRIES
+typedef EMBEDDED_DATA_ENTRY* EMBEDDED_DATA_ENTRIES;
 
 struct Embedded_Data {
 	char* name;
