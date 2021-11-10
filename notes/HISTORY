@@ -1,3 +1,4 @@
+10/16/21 08:10PM
 EMBEDDED_DATA
 	We had a struct called Embedded_Data, it looked like this:
 
@@ -54,3 +55,9 @@ EMBEDDED_DATA
 	fields like name, and permissions. This could work however we then lose the 
 	ability to use a structure specific variable name, ex. for LOG we use log_name.
 	This concludes the following writeup as every point has been mentioned.
+
+11/09/21 6:30PM
+	1. removed library/embedded_data
+	2. created library/TESTS/WORK-IN-PROGRESS
+	3. inside library/TESTS/WORK-IN-PROGRESS we created struct_recursion.c
+	4. started an entry in GCC_NOTES about struct_recursion and forward decl.	

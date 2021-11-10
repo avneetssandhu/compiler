@@ -47,6 +47,7 @@ Table_Data_XXX_Information_Struct_Typedef(Add, ADD);
 Table_Data_XXX_Information_Struct_Typedef(Remove, REMOVE);
 Table_Data_XXX_Information_Struct_Typedef(Insert, INSERT);
 
+
 struct Table_Data_Alteration_Information {
 	TABLE_DATA_ADD_INFORMATION table_data_add_information;
 	TABLE_DATA_REMOVE_INFORMATION table_data_remove_information;

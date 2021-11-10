@@ -1,3 +1,4 @@
+10/16/21 08:28PM
 GCC macro expansion is not that great when it comes to concatenation,
 here is an example. note: "##" is used for concatenation
 	#define Test_XXX(XXX) ##XXX_Test
@@ -28,3 +29,7 @@ Data_XXX_Information_Struct_Gen, this macro can be found in
 library/Tests/table/macros/Data_XXX_Information_Struct_Gen.c, the macro
 was created successfully, but it follows the above pattern of having to
 include whitespace inbetween the strings to be concatenated.
+
+
+11/09/21 07:03PM
+struct recursion in library/TESTS/WORK-IN-PROGRESS/struct_recursion.c

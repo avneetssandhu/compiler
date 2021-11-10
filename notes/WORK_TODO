@@ -5,8 +5,9 @@
    but does not format it well (it lacks newlines after the variable decls
    inside the struct). Find out how to make it generate the struct with 
    newlines.
-4. Find a balance between EMBEDDED_DATA, TABLE, and LOG. TABLE and LOG use EMBEDDED_DATA
-   and EMBEDDED_DATA has DATA_ALTERATION_INFORMATION, while TABLE has 
-   TABLE_DATA_ALTERATION_INFORMATION, we are thinking about changing this to
-   TABLE_ENTRY_ALTERATION_INFORMATION since we discussed it a bit, and EMBEDDED_DATA 
-   should be in bulk bytes and TABLE should be in entries
+4. Finish working on EMBEDDED_DATA, now called structs_common_embedded_data, we are still
+   at the notecard phase but have also started a journal entry in library/notes. Additional
+   tests are needed for structs_common. We need to create a directory within library/ 
+   (for structs_common, we may call it "structs"). Also complete entry in GCC_NOTES about
+   the struct behavior (recursion and forward declaring).
+
