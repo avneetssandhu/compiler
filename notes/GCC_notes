@@ -1,3 +1,4 @@
+Entry 1
 10/16/21 08:28PM
 GCC macro expansion is not that great when it comes to concatenation,
 here is an example. note: "##" is used for concatenation
@@ -30,6 +31,51 @@ library/Tests/table/macros/Data_XXX_Information_Struct_Gen.c, the macro
 was created successfully, but it follows the above pattern of having to
 include whitespace inbetween the strings to be concatenated.
 
+Entry 2
+11/10/21 12:36PM
+	GCC does not have the capability to detect Struct Recursion and to provide Forward
+	Declaration when it comes to structs. Below is a code  implementation of what we 
+	call Struct Recursion.
+	
+	struct A {
+		struct B b;
+	};
 
-11/09/21 07:03PM
-struct recursion in library/TESTS/WORK-IN-PROGRESS/struct_recursion.c
+	struct B {
+		struct A a;
+	};
+
+	As seen above struct A contains a struct B, and struct B contains a struct A. The
+	problem we face is how do we actually implement this? We can't, the lines of code
+	which say "include struct A/B" are invalid, we can't actually interpret the 
+	structure.
+	However this is not the error which GCC gives us if we try to do the above. GCC
+	throws an error which says "error: field 'b' had incomplete type". This error
+	can be seen by going into 
+	"library/TESTS/struct/errors/incomplete_type/gcc_incomplete_type_error.c" and 
+	compiling with "gcc gcc_incomplete_type_error.c -o test". The actual meaning of 
+	the error means the compiler does not have information on struct B since it is 
+	defined below struct A. A fix to this issue is said to be forward declaration, 
+	which is shown below.
+	Note: We changed the internals of struct B because we only want to see if GCC
+	implements Forward Declaration for structs, and we want to eliminate any other
+	possible errors in case GCC does have an error for Struct Recursion (which from
+	what we have seen, it doesn't).
+
+	struct B;
+	struct A {
+		struct B b;
+	};
+
+	struct B {
+		int a;
+	};
+
+	The above gives us the same "incomplete type" error. This error can be seen by
+	going into 
+	"library/TESTS/struct/errors/incomplete_type/
+	gcc_incomplete_type_error_test_fix_by_forward_decl.c" and
+	compiling with "gcc gcc_incomplete_type_error_test_fix_by_forward_decl.c -o test".
+	So GCC does not provide the ability for Forward Declaration when it comes to 
+	structs.	
+

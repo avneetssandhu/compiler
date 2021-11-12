@@ -10,4 +10,6 @@
    tests are needed for structs_common. We need to create a directory within library/ 
    (for structs_common, we may call it "structs"). Also complete entry in GCC_NOTES about
    the struct behavior (recursion and forward declaring).
+4.1 Finish working on the 11/10/21 12:36PM entry (where we wanted to explain what we
+    did on the piece of printer paper).
 

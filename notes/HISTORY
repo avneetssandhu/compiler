@@ -56,8 +56,16 @@ EMBEDDED_DATA
 	ability to use a structure specific variable name, ex. for LOG we use log_name.
 	This concludes the following writeup as every point has been mentioned.
 
-11/09/21 6:30PM
+11/09/21 06:30PM
 	1. removed library/embedded_data
 	2. created library/TESTS/WORK-IN-PROGRESS
 	3. inside library/TESTS/WORK-IN-PROGRESS we created struct_recursion.c
-	4. started an entry in GCC_NOTES about struct_recursion and forward decl.	
+	4. started an entry in GCC_notes about Struct Recursion and Forward Decl.	
+
+11/11/21 07:26PM
+	Created directory library/TESTS/struct/errors/incomplete_type .
+	Finished entry (Entry 2) in GCC_notes which was about Struct Recusion and 
+	Forward Decl.
+
+	
+
